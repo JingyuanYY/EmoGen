@@ -1,0 +1,2 @@
+weights/image_encoder/* filter=lfs diff=lfs merge=lfs -text
+weights/image_encoder/2023-08-22-best.pth filter=lfs diff=lfs merge=lfs -text
