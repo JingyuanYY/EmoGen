@@ -6,13 +6,20 @@
 <a href="https://arxiv.org/abs/2401.04608"><img src="https://img.shields.io/badge/arXiv-2401.04608-b31b1b.svg" height=22.5></a>
 
 <p align="center">
-<img src="docs/teaser.png" width="800px"/>  
+<img src="docs/teaser.png" width="1200px"/>  
 <br>
 Given an emotion category, our network produces images that exhibit unambiguous meanings (semantic-clear), reflect the intended emotion (emotion-faithful) and incorporate varied semantics (semantic-diverse).
 </p>
 
 ## Description
 Official implementation of our EmoGen paper.
+
+## Pipeline
+<p align="center">
+<img src="docs/method-1.png" width="1200px"/>  
+<br>
+Training process of our network. Emotion representation (stage 1) learns a well-behaved emotion space and emotion content generation (stage 2) maps this space to CLIP space, aiming to generate image contents with emotion fidelity, semantic clarity and diversity.
+</p>
 
 ## Setup
 To create the conda environment needed to run the code, run the following command:
@@ -75,7 +82,7 @@ You can modify config/config.yaml to change some details.
 ### Emotion Creation
 
 <p align="center">
-<img src="docs/exp-5.png" width="800px"/>  
+<img src="docs/exp-5.png" width="1500px"/>  
 <br>
 Transfering emotion representations to a series of neutral contents.
 </p>
@@ -110,7 +117,7 @@ this code has similar structure as training/inference.py.
 ## Results
 #### Comparison with other diffusion models
 <p align="center">
-<img src="docs/exp-1.png" width="800px"/>  
+<img src="docs/exp-1.png" width="1000px"/>  
 <br>
 Qualitative comparisions with the state-of-the-art text-to-image generation approaches and ablation studies of our method.
 </p>
