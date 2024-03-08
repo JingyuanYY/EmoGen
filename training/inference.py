@@ -101,7 +101,7 @@ def inference(arg, emotion):
 
     text = prompt
     templates = [
-        "a photo of a {}",
+        "{} bag",
     ]
     if arg.use_prompt:
         text = random.choice(templates).format(prompt[0])
@@ -336,23 +336,13 @@ if __name__ == "__main__":
         try:
             for i in epochs:
                 output_dir = os.path.join(origin, str(i))
-                if "prompt" in params["project_name"]:
-                    use_prompt = True
-                    for _ in range(1):
-                        generate(output_dir, device, model, num_fc_layers, need_LN, need_ReLU, need_Dropout, use_prompt)
-                    emo_cls(output_dir, device, weight)
-                else:
-                    for _ in range(1):
-                        generate(output_dir, device, model, num_fc_layers, need_LN, need_ReLU, need_Dropout)
-                    emo_cls(output_dir, device, weight)
+                # use_prompt = True
+                # generate(output_dir, device, model, num_fc_layers, need_LN, need_ReLU, need_Dropout, use_prompt)
+                generate(output_dir, device, model, num_fc_layers, need_LN, need_ReLU, need_Dropout)
+                emo_cls(output_dir, device, weight)
         except:
             output_dir = origin
-            if "prompt" in params["project_name"]:
-                use_prompt = True
-                for _ in range(1):
-                    generate(output_dir, device, model, num_fc_layers, need_LN, need_ReLU, need_Dropout, use_prompt)
-                emo_cls(output_dir, device, weight)
-            else:
-                for _ in range(1):
-                    generate(output_dir, device, model, num_fc_layers, need_LN, need_ReLU, need_Dropout)
-                emo_cls(output_dir, device, weight)
+            # use_prompt = True
+            # generate(output_dir, device, model, num_fc_layers, need_LN, need_ReLU, need_Dropout, use_prompt)
+            generate(output_dir, device, model, num_fc_layers, need_LN, need_ReLU, need_Dropout)
+            emo_cls(output_dir, device, weight)
