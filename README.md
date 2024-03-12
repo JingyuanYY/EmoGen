@@ -31,7 +31,8 @@ conda activate EmoGen
 
 Alternatively, install the requirements from `requirements.txt`
 
-##Usage
+## Usage
+
 ### Preliminary
 [EmoSet](https://vcc.tech/EmoSet) is needed to train in this network, as attribute label is necessary.
 
@@ -122,27 +123,30 @@ this code has similar structure as training/inference.py.
 Fig 4. Qualitative comparisions with the state-of-the-art text-to-image generation approaches and ablation studies of our method.
 </p>
 
-
+<div align="center">
      
-| Method | FID⬇ | LPIPS⬆ | Emo-A⬆ | Sem-C⬆ | Sem-D⬆ |
-|-------|-------|-------|-------|-------|-------|
+Table 1. Comparisons with the state-of-the-art methods on emotion generation task, involving five metrics.
+| Method | FID &darr; | LPIPS &uarr; | Emo-A &uarr; | Sem-C &uarr; | Sem-D &uarr; |
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 | Stable Diffusion | 44.05 | 0.687 | 70.77% | 0.608 | 0.0199 |
 | Textual Inversion | 50.51 | 0.702 | 74.87% | 0.605 | 0.0282 |
 | DreamBooth | 46.89| 0.661 | 70.50% | 0.614 | 0.0178 |
 | Ours     | **41.60** | **0.717** | **76.25%** | **0.633** | **0.0335** |
 
-Table 1. Comparisons with the state-of-the-art methods on emotion generation task, involving five metrics.
+</div>
 
+<div align="center">
 
-
-| Method | Image fidelity⬆ | Emotion faithfulness⬆ | Semantic diversity⬆ |
-|-------|-------|-------|-------|
+Table 2.  User preference study. The numbers indicate the percentage of participants who prefer our results over those compared
+methods, given the same emotion category as input.
+| Method | Image fidelity &uarr; | Emotion faithfulness &uarr; | Semantic diversity &uarr; |
+|:-------:|:-------:|:-------:|:-------:|
 | Stable Diffusion | 67.86±15.08% | 73.66±11.80% | 87.88±9.64% |
 | Textual Inversion | 79.91±16.92% | 72.75±16.90% | 85.66±10.51% |
 | DreamBooth | 77.23±14.00% | 80.79±8.64% | 81.68±17.06% |
 
-Table 2.  User preference study. The numbers indicate the percentage of participants who prefer our results over those compared
-methods, given the same emotion category as input.
+</div>
+
 ## Citation
 If you find this work useful, please kindly cite our paper:
 ```
