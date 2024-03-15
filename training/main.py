@@ -404,7 +404,7 @@ class image_encoder(nn.Module):
     def __init__(self):
         super(image_encoder, self).__init__()
         self.resnet = BackBone()
-        state = torch.load("/home/ubuntu/code/Emo-generation/weights/2023-08-22-best.pth")
+        state = torch.load("weights/image_encoder/2023-08-22-best.pth")
         self.resnet.load_state_dict(state)
         self.resnet = torch.nn.Sequential(*list(self.resnet.children())[1:-1])
 
