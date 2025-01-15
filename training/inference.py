@@ -85,6 +85,8 @@ def inference(arg, emotion):
 
     text_encoder = CLIPTextModel.from_pretrained(repo_id, subfolder="text_encoder")
     text_encoder.to(device)
+
+    num_added_tokens = tokenizer.add_tokens(placeholder_token)
     # Convert the initializer_token, placeholder_token to ids
     token_ids = tokenizer.encode("cat", add_special_tokens=False)
     # Check if initializer_token is a single token or a sequence of tokens
