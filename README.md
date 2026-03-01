@@ -25,8 +25,10 @@ Fig 2. Training process of our network. Emotion representation (stage 1) learns 
 To create the conda environment needed to run the code, run the following command:
 
 ```
+git clone https://github.com/JingyuanYY/EmoGen.git 
 conda env create -f environment/env.yaml
 conda activate EmoGen
+（notice：huggingface-hub >= 0.164,<0.21)
 ```
 
 Alternatively, install the requirements from `requirements.txt`
@@ -55,6 +57,10 @@ data_root
      └── (2406) street
 ```
 The number before the attribute represents the total number of images with this attribute.
+First of all, you need to download the data set to your local machine:
+<img width="536" alt="dbdec903c06c3be7e1441a17c955d9a" src="https://github.com/user-attachments/assets/ec0bd409-7cc6-4daf-b72d-1b585a98b816" />
+Then you should use the following command:
+python training/dataset_balance.py
 ### Training
 To train our network, follow these steps:
 
