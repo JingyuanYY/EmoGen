@@ -214,13 +214,16 @@ def inference(arg):
         )
         for _ in range(num_picture):
 
+            weight_1 = opt.weight_1  
+            weight_2 = opt.weight_2
+
             e_vec_1 = normal_1.sample((1,))
             e_vec_2 = normal_2.sample((1,))
 
             embed_1 = mapper(e_vec_1)
-            token_embeds[token_id] = embed_1
             embed_2 = mapper(e_vec_2)
-            token_embeds[33648] = embed_2
+            fused_embed = weight_1 * embed_1 + weight_2 * embed_2
+            token_embeds[token_id] = fused_embed
             latents = torch.randn(
                 (batch_size, unet.in_channels, height // 8, width // 8),
                 # generator=generator,
@@ -277,6 +280,11 @@ def generate(cur_dir, device, model, num_fc_layers=1, need_LN=False, need_ReLU=F
     parser.add_argument("--need_ReLU", type=bool, default=need_ReLU)
     parser.add_argument("--need_Dropout", type=bool, default=need_Dropout)
     parser.add_argument("--seed", type=int, default=None, help="A seed for reproducible training.")
+    parser.add_argument('--weight_1', type=float, default=0.5, help="Weight for emotion 1")
+    parser.add_argument('--weight_2', type=float, default=0.5, help="Weight for emotion 2")
+    parser.add_argument('--learning_rate', type=float, default=2e-5, help="Learning rate for optimizer")
+    parser.add_argument('--batch_size', type=int, default=32, help="Batch size for training")
+
     opt = parser.parse_args()
     inference(opt)
 
